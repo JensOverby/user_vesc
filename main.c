@@ -57,6 +57,7 @@
 #include "mempools.h"
 
 #include "turbine.h"
+#include "turbineController.h"
 
 /*
  * HW resources used:
@@ -248,6 +249,10 @@ int main(void) {
 		}
 	}
 
+	turbine_init();
+
+
+
 	ledpwm_init();
 	mc_interface_init();
 
@@ -261,12 +266,14 @@ int main(void) {
 	comm_can_init();
 #endif
 
+	turbineController_init();
+
 	app_configuration *appconf = mempools_alloc_appconf();
 	conf_general_read_app_configuration(appconf);
 	app_set_configuration(appconf);
 	app_uartcomm_start_permanent();
 
-	turbine_init();
+	//turbine_init();
 	turbine_configuration *turbine_conf = turbine_conf_alloc();
 	turbine_conf_read(turbine_conf);
 	turbine_conf_set(turbine_conf);

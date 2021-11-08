@@ -24,7 +24,7 @@ typedef struct {
 } turbine_configuration;
 
 
-///*PROGMEM const*/ float valFloat[] =  { 14.4, 40., 9., 20., 5., 35., 500. };
+
 
 // Functions
 turbine_configuration *turbine_conf_alloc(void);
@@ -43,5 +43,7 @@ bool turbine_conf_store(turbine_configuration *conf);
 
 // Functions
 void turbine_init(void);
+void turbine_printf(const char* format, ...);
+void turbine_set_callbacks(void(*interruptNotify)(void), void(*dataHandler)(unsigned char *data, unsigned int len));
 
 #endif /* TURBINE_H_ */

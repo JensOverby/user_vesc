@@ -162,6 +162,8 @@ CSRC = $(STARTUPSRC) \
        worker.c \
        bms.c \
        turbine.c \
+       turbineController/turbineController.c \
+       turbineController/turbineUtils.c \
        $(HWSRC) \
        $(APPSRC) \
        $(NRFSRC) \
@@ -203,6 +205,7 @@ INCDIR = $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(CHIBIOS)/os/hal/lib/streams \
          mcconf \
          appconf \
+         turbineController \
          $(HWINC) \
          $(APPINC) \
          $(NRFINC) \
